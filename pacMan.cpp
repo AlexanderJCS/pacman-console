@@ -64,6 +64,10 @@ class PacMan
 	short lives = 3;
 	
 	std::map<char, std::vector<gameObject>> levelMap;
+	
+	std::vector<gameObject> defaultPacManCoords;
+	std::vector<gameObject> defaultGhostCoords;
+
 	size_t levelWidth;
 	size_t levelHeight;
 
@@ -429,6 +433,41 @@ class PacMan
 		return true;
 	}
 
+	void checkLostLife()
+	{
+		for (auto pacman : levelMap['P'])
+		{			
+			for (auto ghost : levelMap['O'])
+			{
+				if (pacman.x == ghost.x && pacman.y == ghost.y)
+				{
+					lives--;
+
+					Sleep(1000);
+					
+					levelMap['P'] = defaultPacManCoords;
+					levelMap['O'] = defaultGhostCoords;
+					
+					Sleep(1000);
+					system("cls");
+					return;
+				}
+			}
+		}
+	}
+
+	bool lost()
+	{
+		if (lives < 0)
+		{
+			std::wcout << "You lost!\n";
+			Sleep(3000);
+			return true;
+		}
+		
+		return false;
+	}
+
 public:
 	PacMan()
 	{
@@ -438,6 +477,9 @@ public:
 		levelWidth = maxWidth(level);
 
 		levelMap = LevelUtils::parseLevel(level);
+
+		defaultPacManCoords = levelMap['P'];
+		defaultGhostCoords = levelMap['O'];
 	}
 
 	void run()
@@ -451,8 +493,9 @@ public:
 			teleportOtherSide();
 			draw();
 			collectPellets();
-			
-			if (won())
+			checkLostLife();
+
+			if (won() || lost())
 			{
 				break;
 			}

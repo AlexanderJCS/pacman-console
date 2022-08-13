@@ -20,7 +20,7 @@ Use `W`, `A`, `S`, and `D` to move. Collect all the pellets to win.
 
 ## Compiling
 
-You can compile this p
+You can compile this program using the following command: `g++ ./pacMan.cpp ./levelUtils.cpp ./gameObject.cpp`
 
 ## Planned features
 

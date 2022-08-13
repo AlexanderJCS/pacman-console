@@ -24,9 +24,11 @@ This project is made with the Visual Studio compiler. If there are any compilati
 
 ## Planned features
 
-- Death
 - Configuration files for refresh rate and ghost movement speed
-- Multiple levels 
+- Power pellets (puts ghosts in a blue, frightened mode)
+- PacMan faces the direction he is moving
 
 ## Known issues
-No known issues at this time. Ghost movement may stutter because they only update 2 out of 3 frames. This is to make the game easier. In the future, there will be a configuration file to allow the user to modify ghost speed.
+Ghost movement may stutter because they only update 2 out of 3 frames. This is to make the game easier. In the future, there will be a configuration file to allow the user to modify ghost speed.
+
+- Sometimes PacMan can teleport through a ghost if Pacman and the ghost are moving head on.

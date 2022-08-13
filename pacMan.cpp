@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cmath>
 #include <map>
 
 #include <io.h>
@@ -10,7 +11,6 @@
 
 #include "gameObject.h"
 #include "levelUtils.h"
-
 
 const int REFRESH = 50;
 const std::string LEVELNAME = "level.txt";
@@ -279,8 +279,8 @@ class PacMan
 
 		for (auto ghostMove : ghostMoves)
 		{
-			float dist = pow(ghost.x - levelMap['P'][0].x + ghostMove[0], 2) +
-					        pow(ghost.y - levelMap['P'][0].y + ghostMove[1], 2);	
+			float dist = std::pow(ghost.x - levelMap['P'][0].x + ghostMove[0], 2) +
+					     std::pow(ghost.y - levelMap['P'][0].y + ghostMove[1], 2);	
 				
 			if (dist < minDist)
 			{
@@ -308,8 +308,8 @@ class PacMan
 
 		for (auto ghostMove : ghostMoves)
 		{
-			float dist = pow(ghost.x - levelMap['P'][0].x + ghostMove[0], 2) +
-				pow(ghost.y - levelMap['P'][0].y + ghostMove[1], 2);
+			float dist = std::pow(ghost.x - levelMap['P'][0].x + ghostMove[0], 2) +
+				         std::pow(ghost.y - levelMap['P'][0].y + ghostMove[1], 2);
 
 			if (dist > maxDist)
 			{
@@ -525,7 +525,7 @@ int main()
 {
 	srand(time(0));
 	_setmode(_fileno(stdout), _O_U16TEXT);
-	
+
 	showConsoleCursor(false);
 	system("cls");
 

@@ -20,13 +20,14 @@ Use `W`, `A`, `S`, and `D` to move. Collect all the pellets to win.
 
 ## Compiling
 
-This project is made with the Visual Studio compiler. If there are any compilation errors, try compiling with Visual Studio.
+You can compile this p
 
 ## Planned features
 
 - Configuration files for refresh rate and ghost movement speed
 - Power pellets (puts ghosts in a blue, frightened mode)
 - PacMan faces the direction he is moving
+- Using conio.h for input instead of windows.h so the player does not need to hold the movement key down until there is a new frame.
 
 ## Known issues
 Ghost movement may stutter because they only update 2 out of 3 frames. This is to make the game easier. In the future, there will be a configuration file to allow the user to modify ghost speed.

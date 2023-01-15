@@ -2,7 +2,7 @@
 
 A PacMan console game made in C++.
 
-**This project is currently a work in progress.**
+**This project is abandoned and is not complete.**
 
 ## Compatibility
 
